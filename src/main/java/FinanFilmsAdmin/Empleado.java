@@ -1,12 +1,12 @@
 package FinanFilmsAdmin;
 
 public class Empleado {
-    String nombreEmpleado;
-    String CorreoEmpleado;
-    String EmpresaEmpleado;
-    String RolUsuario;
+    private String nombreEmpleado;
+    private String CorreoEmpleado;
+    private Empresa EmpresaEmpleado;
+    private String RolUsuario;
 
-    private Empleado(String nombreEmpleado, String CorreoEmpleado, String EmpresaEmpleado, String RolUsuario) {
+    public Empleado(String nombreEmpleado, String CorreoEmpleado, Empresa EmpresaEmpleado, String RolUsuario) {
         this.nombreEmpleado = nombreEmpleado;
         this.CorreoEmpleado = CorreoEmpleado;
         this.EmpresaEmpleado= EmpresaEmpleado;
@@ -21,11 +21,11 @@ public class Empleado {
         CorreoEmpleado = correoEmpleado;
     }
 
-    public String getEmpresaEmpleado() {
+    public Empresa getEmpresaEmpleado() {
         return EmpresaEmpleado;
     }
 
-    public void setEmpresaEmpleado(String empresaEmpleado) {
+    public void setEmpresaEmpleado(Empresa empresaEmpleado) {
         EmpresaEmpleado = empresaEmpleado;
     }
 
