@@ -9,20 +9,20 @@ public class Empleado {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long Id;
     @Column(name = "nombre_empleado")
-    String nombreEmpleado;
+    private String nombreEmpleado;
     @Column(name = "correo_empleado")
-    String CorreoEmpleado;
+    private String CorreoEmpleado;
     @Column(name = "empresa_empleado")
-    String EmpresaEmpleado;
+    private String EmpresaEmpleado;
     @Column(name = "rol_usuario")
-    String RolUsuario;
+    private String RolUsuario;
 
 //Nuevo Constructor
 public Empleado(){
 
 }
 
-    private Empleado(String nombreEmpleado, String CorreoEmpleado, String EmpresaEmpleado, String RolUsuario) {
+    public Empleado(String nombreEmpleado, String CorreoEmpleado, String EmpresaEmpleado, String RolUsuario) {
         this.nombreEmpleado = nombreEmpleado;
         this.CorreoEmpleado = CorreoEmpleado;
         this.EmpresaEmpleado= EmpresaEmpleado;
