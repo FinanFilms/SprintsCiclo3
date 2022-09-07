@@ -1,10 +1,26 @@
-package FinanFilmsAdmin;
+package FinanFilmsAdmin.Entidades;
 
+import javax.persistence.*;
+
+@Entity
+@Table (name = "Empleado")
 public class Empleado {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long Id;
+    @Column(name = "nombre_empleado")
     String nombreEmpleado;
+    @Column(name = "correo_empleado")
     String CorreoEmpleado;
+    @Column(name = "empresa_empleado")
     String EmpresaEmpleado;
+    @Column(name = "rol_usuario")
     String RolUsuario;
+
+//Nuevo Constructor
+public Empleado(){
+
+}
 
     private Empleado(String nombreEmpleado, String CorreoEmpleado, String EmpresaEmpleado, String RolUsuario) {
         this.nombreEmpleado = nombreEmpleado;

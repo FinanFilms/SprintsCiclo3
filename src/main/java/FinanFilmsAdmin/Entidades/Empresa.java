@@ -1,15 +1,35 @@
-package FinanFilmsAdmin;
+package FinanFilmsAdmin.Entidades;
 
+import javax.persistence.*;
+
+@Entity
+@Table (name="Empresa")
 public class Empresa {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+
+    private long Id;
+    @Column(name = "nombre_empresa")
     private String nombreEmpresa;
+    @Column(name = "direccion_empresa")
     private String direccionEmpresa;
+    @Column(name = "telefono_empresa")
     private String telefonoEmpresa;
+    @Column(name = "nit_empresa")
     private String nitEmpresa;
+//nuevo
+
+//Constructor
+public Empresa(){
+
+}
 
 //Constructor
 
 
     public Empresa(String nombreEmpresa, String direccionEmpresa, String telefonoEmpresa, String nitEmpresa) {
+
         this.nombreEmpresa = nombreEmpresa;
         this.direccionEmpresa = direccionEmpresa;
         this.telefonoEmpresa = telefonoEmpresa;

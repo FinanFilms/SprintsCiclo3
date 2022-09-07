@@ -1,12 +1,27 @@
-package FinanFilmsAdmin;
+package FinanFilmsAdmin.Entidades;
 
+import javax.persistence.*;
+
+@Entity
+@Table (name = "MovimientoDinero")
 public class MovimientoDinero {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long Id;
+    @Column(name = "monto_movimiento")
     private float MontoMovimiento;
+    @Column(name = "ingreso")
     private boolean Ingreso;
+    @Column(name = "concepto_movimiento")
     private String ConceptoMovimiento;
+    @Transient
     private Empleado Empleado;
 
-    public MovimientoDinero(float montoMovimiento, boolean ingreso, String conceptoMovimiento, FinanFilmsAdmin.Empleado empleado) {
+    //Nuevo constructor
+    public MovimientoDinero(){
+
+    }
+    public MovimientoDinero(float montoMovimiento, boolean ingreso, String conceptoMovimiento, FinanFilmsAdmin.Entidades.Empleado empleado) {
         this.MontoMovimiento = montoMovimiento;
         this.Ingreso = ingreso;
         this.ConceptoMovimiento = conceptoMovimiento;
@@ -41,11 +56,11 @@ public class MovimientoDinero {
         ConceptoMovimiento = conceptoMovimiento;
     }
 
-    public FinanFilmsAdmin.Empleado getEmpleado() {
+    public FinanFilmsAdmin.Entidades.Empleado getEmpleado() {
         return Empleado;
     }
 
-    public void setEmpleado(FinanFilmsAdmin.Empleado empleado) {
+    public void setEmpleado(FinanFilmsAdmin.Entidades.Empleado empleado) {
         Empleado = empleado;
     }
 
