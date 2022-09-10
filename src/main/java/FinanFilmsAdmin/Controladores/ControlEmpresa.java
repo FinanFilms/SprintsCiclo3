@@ -3,10 +3,7 @@ package FinanFilmsAdmin.Controladores;
 
 import FinanFilmsAdmin.Entidades.Empresa;
 import FinanFilmsAdmin.Servicios.ServiciosEmpresa;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -42,6 +39,17 @@ return empresa1;
     @PostMapping ("/empresas")
     public Empresa crearEmpresa(@RequestBody Empresa emp){
         return this.servicioEmp.crearEmpresa(emp);
+    }
+    //Metodo editar un registro
+    @PutMapping("/empresas/{id}")
+    public Empresa actualizarEmpresa(@PathVariable Long id, @RequestBody Empresa actEmpresa){
+        return this.servicioEmp.actualizarEmp(id,actEmpresa);
+    }
+    //Metodo borrar registro
+    @DeleteMapping("/eliminar/{id}")
+    public Empresa eliminarEmpresa(@PathVariable (value = "id")Long id){
+        return this.servicioEmp.eliminarEmp(id);
+
     }
 
 }

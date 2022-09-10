@@ -74,5 +74,18 @@ public List<Empresa> getListaEmpresas(){
  public Empresa crearEmpresa (Empresa nuevaEmpresa){
         return this.repositorioEmp.save(nuevaEmpresa);
  }
+    //Metodo para actualizar
+    public Empresa actualizarEmp(Long id, Empresa emp){
+        Empresa empresActual = repositorioEmp.findById(id).orElseThrow();
+        empresActual.setNombreEmpresa(emp.getNombreEmpresa());
+        empresActual.setNitEmpresa(emp.getNitEmpresa());
+        return this.repositorioEmp.save(empresActual);
 
+    }
+    //Metodo para eliminar
+    public Empresa eliminarEmp (Long id){
+        Empresa empresActual = repositorioEmp.findById(id).orElseThrow();
+        this.repositorioEmp.deleteById(id);
+        return empresActual;
+    }
 }
