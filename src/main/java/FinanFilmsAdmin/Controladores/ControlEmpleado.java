@@ -1,9 +1,7 @@
 package FinanFilmsAdmin.Controladores;
 
 import FinanFilmsAdmin.Entidades.Empleado;
-import FinanFilmsAdmin.Entidades.Empresa;
 import FinanFilmsAdmin.Servicios.ServiciosEmpleado;
-import FinanFilmsAdmin.Servicios.ServiciosEmpresa;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,7 +29,7 @@ public class ControlEmpleado {
         return this.serviciosEmpld.actualizarEmpld(id,actEmpleado);
     }
     //Metodo borrar registro
-    @DeleteMapping("/eliminar/{id}")
+    @DeleteMapping("/empleados/{id}")
     public Empleado eliminarEmpleado(@PathVariable (value = "id")Long id){
         return this.serviciosEmpld.eliminarEmpld(id);
 
