@@ -1,12 +1,10 @@
 package FinanFilmsAdmin.Controladores;
 
 import FinanFilmsAdmin.Entidades.Empleado;
+import FinanFilmsAdmin.Entidades.Empresa;
 import FinanFilmsAdmin.Servicios.ServiciosEmpleado;
 import FinanFilmsAdmin.Servicios.ServiciosEmpresa;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +25,15 @@ public class ControlEmpleado {
     @PostMapping("/empleados")
     public Empleado crearEmpleado (@RequestBody Empleado empleadoNuevo){
         return this.serviciosEmpld.crearEmpleado(empleadoNuevo);
+    }
+    @PutMapping("/empleados/{id}")
+    public Empleado actualizarEmpleado(@PathVariable Long id, @RequestBody Empleado actEmpleado){
+        return this.serviciosEmpld.actualizarEmpld(id,actEmpleado);
+    }
+    //Metodo borrar registro
+    @DeleteMapping("/eliminar/{id}")
+    public Empleado eliminarEmpleado(@PathVariable (value = "id")Long id){
+        return this.serviciosEmpld.eliminarEmpld(id);
+
     }
 }

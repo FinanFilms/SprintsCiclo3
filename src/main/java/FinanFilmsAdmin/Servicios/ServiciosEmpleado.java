@@ -26,6 +26,21 @@ public class ServiciosEmpleado {
         return this.reposEmpleado.save(nuevoEmpleado);
     }
 
+    public Empleado actualizarEmpld(Long id, Empleado Empld){
+        Empleado EmpleadoActual = reposEmpleado.findById(id).orElseThrow();
+        EmpleadoActual.setNombreEmpleado(Empld.getNombreEmpleado());
+        EmpleadoActual.setCorreoEmpleado(Empld.getCorreoEmpleado());
+        EmpleadoActual.setEmpresaEmpleado(Empld.getEmpresaEmpleado());
+        EmpleadoActual.setRolUsuario(Empld.getRolUsuario());
+        return this.reposEmpleado.save(EmpleadoActual);
+    }
+
+    public  Empleado eliminarEmpld(Long id){
+        Empleado EmpleadoActual = reposEmpleado.findById(id).orElseThrow();
+        this.reposEmpleado.deleteById(id);
+        return EmpleadoActual;
+    }
+
 }
 
 
