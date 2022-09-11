@@ -1,5 +1,6 @@
 package FinanFilmsAdmin.Controladores;
 
+import FinanFilmsAdmin.Entidades.Empleado;
 import FinanFilmsAdmin.Entidades.Empresa;
 import FinanFilmsAdmin.Entidades.MovimientoDinero;
 import FinanFilmsAdmin.Servicios.ServiciosEmpresa;
@@ -20,6 +21,11 @@ public class ControlMovimientoDinero {
     @GetMapping("/enterprises/{id}/movements")
     public List<MovimientoDinero> getMovimientoEmpresa(){
         return sempresa.getServicioMD();
+    }
+
+    @GetMapping("/enterprises")
+    public List<MovimientoDinero> listadeMovimientos(){
+        return this.sempresa.getlistadeMovimientos();
     }
 
     @PostMapping("/enterprises/{id}/movements")
