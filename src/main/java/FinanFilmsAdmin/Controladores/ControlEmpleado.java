@@ -19,6 +19,10 @@ public class ControlEmpleado {
     public List<Empleado> listaEmpleados(){
         return this.serviciosEmpld.getListaEmpleados();
     }
+    @GetMapping("/empleados/{id}")
+    public Empleado UnicoEmpleado(@PathVariable Long id){
+        return this.serviciosEmpld.getUnicoEmpleado(id);
+    }
 
     @PostMapping("/empleados")
     public Empleado crearEmpleado (@RequestBody Empleado empleadoNuevo){

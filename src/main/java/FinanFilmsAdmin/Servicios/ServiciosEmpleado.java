@@ -28,7 +28,8 @@ public class ServiciosEmpleado {
 
     public Empleado actualizarEmpld(Long id, Empleado Empld){
         Empleado EmpleadoActual = reposEmpleado.findById(id).orElseThrow();
-        EmpleadoActual.setNombreEmpleado(Empld.getNombreEmpleado());
+        EmpleadoActual.setCedulaEmpleado(Empld.getCedulaEmpleado());
+        EmpleadoActual.setNombreEmpledado(Empld.getNombreEmpledado());
         EmpleadoActual.setCorreoEmpleado(Empld.getCorreoEmpleado());
         EmpleadoActual.setEmpresaEmpleado(Empld.getEmpresaEmpleado());
         EmpleadoActual.setRolUsuario(Empld.getRolUsuario());
@@ -39,6 +40,10 @@ public class ServiciosEmpleado {
         Empleado EmpleadoActual = reposEmpleado.findById(id).orElseThrow();
         this.reposEmpleado.deleteById(id);
         return EmpleadoActual;
+    }
+
+    public Empleado getUnicoEmpleado(Long id){
+        return reposEmpleado.findById(id).orElseThrow();
     }
 
 }

@@ -6,18 +6,18 @@ import javax.persistence.*;
 @Table (name="Empresa")
 public class Empresa {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
 
-    private long Id;
+
+
+
     @Column(name = "nombre_empresa")
     private String nombreEmpresa;
     @Column(name = "direccion_empresa")
     private String direccionEmpresa;
     @Column(name = "telefono_empresa")
     private String telefonoEmpresa;
-    @Column(name = "nit_empresa")
-    private String nitEmpresa;
+    @Id
+    private Long nitEmpresa;
 //nuevo
 
 //Constructor
@@ -28,13 +28,13 @@ public Empresa(){
 //Constructor
 
 
-    public Empresa(String nombreEmpresa, String direccionEmpresa, String telefonoEmpresa, String nitEmpresa) {
+    /*public Empresa(String nombreEmpresa, String direccionEmpresa, String telefonoEmpresa, long nitEmpresa) {
 
         this.nombreEmpresa = nombreEmpresa;
         this.direccionEmpresa = direccionEmpresa;
         this.telefonoEmpresa = telefonoEmpresa;
         this.nitEmpresa = nitEmpresa;
-    }
+    }*/
 
     public String getNombreEmpresa() {
         return nombreEmpresa;
@@ -60,11 +60,11 @@ public Empresa(){
         this.telefonoEmpresa = telefonoEmpresa;
     }
 
-    public String getNitEmpresa() {
+    public Long getNitEmpresa() {
         return nitEmpresa;
     }
 
-    public void setNitEmpresa(String nitEmpresa) {
+    public void setNitEmpresa(Long nitEmpresa) {
         this.nitEmpresa = nitEmpresa;
     }
     @Override

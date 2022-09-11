@@ -1,33 +1,34 @@
 package FinanFilmsAdmin.Entidades;
 
+
 import javax.persistence.*;
 
 @Entity
 @Table (name = "Empleado")
 public class Empleado {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long Id;
-    @Column(name = "nombre_empleado")
-    private String nombreEmpleado;
+    private Long CedulaEmpleado;
+
+    @Column(name="Nombre_Empleado")
+    private String NombreEmpledado;
     @Column(name = "correo_empleado")
     private String CorreoEmpleado;
-    @Column(name = "empresa_empleado")
-    private String EmpresaEmpleado;
+
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "nit_empresa")
+    private Empresa EmpresaEmpleado;
     @Column(name = "rol_usuario")
     private String RolUsuario;
 
+
+
 //Nuevo Constructor
-public Empleado(){
+    public Empleado(){
 
-}
-
-    public Empleado(String nombreEmpleado, String CorreoEmpleado, String EmpresaEmpleado, String RolUsuario) {
-        this.nombreEmpleado = nombreEmpleado;
-        this.CorreoEmpleado = CorreoEmpleado;
-        this.EmpresaEmpleado= EmpresaEmpleado;
-        this.RolUsuario= RolUsuario;
     }
+
+
 
     public String getCorreoEmpleado() {
         return CorreoEmpleado;
@@ -37,12 +38,13 @@ public Empleado(){
         CorreoEmpleado = correoEmpleado;
     }
 
-    public String getEmpresaEmpleado() {
+    public Empresa getEmpresaEmpleado() {
         return EmpresaEmpleado;
     }
 
-    public void setEmpresaEmpleado(String empresaEmpleado) {
+    public void setEmpresaEmpleado(Empresa empresaEmpleado) {
         EmpresaEmpleado = empresaEmpleado;
+
     }
 
     public String getRolUsuario() {
@@ -52,19 +54,26 @@ public Empleado(){
     public void setRolUsuario(String rolUsuario) {
         RolUsuario = rolUsuario;
     }
-
-    public String getNombreEmpleado() {
-        return nombreEmpleado;
+     public String getNombreEmpledado() {
+        return NombreEmpledado;
     }
 
-    public void setNombreEmpleado(String nombreEmpleado) {
-        this.nombreEmpleado = nombreEmpleado;
+    public void setNombreEmpledado(String nombreEmpledado) {
+        NombreEmpledado = nombreEmpledado;
+    }
+
+    public Long getCedulaEmpleado() {
+        return CedulaEmpleado;
+    }
+
+    public void setCedulaEmpleado(Long cedulaEmpleado) {
+        CedulaEmpleado = cedulaEmpleado;
     }
 
     @Override
     public String toString() {
         return "Empleado{" +
-                "nombreEmpleado='" + nombreEmpleado + '\'' +
+                "nombreEmpleado='" + CedulaEmpleado + '\'' +
                 ", CorreoEmpleado='" + CorreoEmpleado + '\'' +
                 ", EmpresaEmpleado='" + EmpresaEmpleado + '\'' +
                 ", RolUsuario='" + RolUsuario + '\'' +

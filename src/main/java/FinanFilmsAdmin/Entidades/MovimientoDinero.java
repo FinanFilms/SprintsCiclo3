@@ -14,7 +14,8 @@ public class MovimientoDinero {
     private boolean Ingreso;
     @Column(name = "concepto_movimiento")
     private String ConceptoMovimiento;
-    @Transient
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "CedulaEmpleado")
     private Empleado Empleado;
 
     //Nuevo constructor

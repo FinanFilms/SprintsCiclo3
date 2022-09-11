@@ -78,7 +78,8 @@ public List<Empresa> getListaEmpresas(){
     public Empresa actualizarEmp(Long id, Empresa emp){
         Empresa empresActual = repositorioEmp.findById(id).orElseThrow();
         empresActual.setNombreEmpresa(emp.getNombreEmpresa());
-        empresActual.setNitEmpresa(emp.getNitEmpresa());
+        empresActual.setDireccionEmpresa(emp.getDireccionEmpresa());
+        empresActual.setTelefonoEmpresa(emp.getTelefonoEmpresa());
         return this.repositorioEmp.save(empresActual);
 
     }
