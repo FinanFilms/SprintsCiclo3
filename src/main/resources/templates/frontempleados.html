@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100" xmlns:th="http:/www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Empleados</title>
+
+</head>
+<body class="d-flex h-100 text-center text-bg-dark">
+
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+        <div>
+            <h3 class="float-md-start mb-0">FinanFilms</h3>
+            <nav class="nav nav-masthead justify-content-center float-md-end">
+                <a class="nav-link fw-bold py-1 px-3 active" aria-current="page" href="http://localhost:8080/">Home</a>
+                <a class="nav-link fw-bold py-1 px-3" href="http://localhost:8080/empleados">Empleados</a>
+                <a class="nav-link fw-bold py-1 px-3" href="http://localhost:8080/empresas">Empresa</a>
+                <a class="nav-link fw-bold py-1 px-3" href="http://localhost:8080/enterprises">Movimientos</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="px-3">
+      <div class = "px-4 py-5 my-5 text-center">
+        <h1 class="display-4 text-white fw-bold mb-4">Empleados Asociados</h1>
+          <div class="d-flex justify-content-center gap-3">
+
+
+
+              <div th:each="Empleados:${Empleados}" class="card" style="width: 18rem;">
+                <img src="img/LogoFF2.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 th:text=${Empleados.NombreEmpledado} class="card-title text-black"></h5>
+                    <h5 th:text=${Empleados.CedulaEmpleado} class="card-title text-black"></h5>
+                    <p th:text=${Empleados.EmpresaEmpleado.nombreEmpresa} class="card-text text-black"> </p>
+                </div>
+                  <ul class="list-group list-group-flush">
+                      <li th:text=${Empleados.CorreoEmpleado} class="list-group-item"></li>
+                      <li th:text=${Empleados.RolUsuario} class="list-group-item"></li>
+                      <li th:text=${Empleados.MovimientoDineroEmp} class="list-group-item"></li>
+
+                  </ul>
+                </div>
+
+              </div>
+
+            </div>
+
+    </main>
+
+    <footer class="mt-auto text-white-50">
+        <p>Propiedad de Finanfilms generado con <a href="https://getbootstrap.com/" class="text-white">  Bootstrap </a></p>
+    </footer>
+</div>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>

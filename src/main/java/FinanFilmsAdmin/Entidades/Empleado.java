@@ -2,6 +2,7 @@ package FinanFilmsAdmin.Entidades;
 
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table (name = "Empleado")
@@ -21,6 +22,8 @@ public class Empleado {
     @Column(name = "rol_usuario")
     private String RolUsuario;
 
+    @OneToMany(mappedBy = "Empleado")
+    private Set<MovimientoDinero> MovimientoDineroEmp;
 
 
 //Nuevo Constructor
@@ -68,6 +71,14 @@ public class Empleado {
 
     public void setCedulaEmpleado(Long cedulaEmpleado) {
         CedulaEmpleado = cedulaEmpleado;
+    }
+
+    public Set<MovimientoDinero> getMovimientoDineroEmp() {
+        return MovimientoDineroEmp;
+    }
+
+    public void setMovimientoDineroEmp(Set<MovimientoDinero> movimientoDineroEmp) {
+        MovimientoDineroEmp = movimientoDineroEmp;
     }
 
     @Override

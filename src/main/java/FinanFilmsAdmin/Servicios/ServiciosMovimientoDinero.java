@@ -2,6 +2,7 @@ package FinanFilmsAdmin.Servicios;
 
 
 import FinanFilmsAdmin.Entidades.Empleado;
+import FinanFilmsAdmin.Entidades.Empresa;
 import FinanFilmsAdmin.Entidades.MovimientoDinero;
 import FinanFilmsAdmin.Repositorios.repositorioMovimientoDinero;
 import org.springframework.stereotype.Service;
@@ -33,7 +34,7 @@ public class ServiciosMovimientoDinero {
         repositorio.save(movd);
         return "registro actualizadco";
     }
-    public List<MovimientoDinero> getlistadeMovimientos(){
+    public List<MovimientoDinero> getListaMovD(){
         return this.repositorio.findAll();
 
     }

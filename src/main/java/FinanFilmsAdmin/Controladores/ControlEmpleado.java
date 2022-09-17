@@ -15,10 +15,12 @@ public class ControlEmpleado {
         this.serviciosEmpld = serviciosEmpld;
     }
 
-    @GetMapping("/empleados")
+    /*@GetMapping("/empleados")
     public List<Empleado> listaEmpleados(){
         return this.serviciosEmpld.getListaEmpleados();
     }
+
+     */
     @GetMapping("/empleados/{id}")
     public Empleado UnicoEmpleado(@PathVariable Long id){
         return this.serviciosEmpld.getUnicoEmpleado(id);

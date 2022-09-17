@@ -25,7 +25,7 @@ public class ControlMovimientoDinero {
 
     @GetMapping("/enterprises")
     public List<MovimientoDinero> listadeMovimientos(){
-        return this.sempresa.getlistadeMovimientos();
+        return this.sempresa.getListaMovD();
     }
 
     @PostMapping("/enterprises/{id}/movements")

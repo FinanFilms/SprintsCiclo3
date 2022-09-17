@@ -14,21 +14,15 @@ public class MovimientoDinero {
     private boolean Ingreso;
     @Column(name = "concepto_movimiento")
     private String ConceptoMovimiento;
-    @ManyToOne(optional = true)
-    @JoinColumn(name = "CedulaEmpleado")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CedulaEmpleado", nullable = false)
     private Empleado Empleado;
 
     //Nuevo constructor
     public MovimientoDinero(){
 
     }
-    public MovimientoDinero(float montoMovimiento, boolean ingreso, String conceptoMovimiento, FinanFilmsAdmin.Entidades.Empleado empleado) {
-        this.MontoMovimiento = montoMovimiento;
-        this.Ingreso = ingreso;
-        this.ConceptoMovimiento = conceptoMovimiento;
-        this.Empleado = empleado;
 
-    }
 
     public float getMontoMovimiento() {
         if (isIngreso()==false) {
@@ -64,6 +58,7 @@ public class MovimientoDinero {
     public void setEmpleado(FinanFilmsAdmin.Entidades.Empleado empleado) {
         Empleado = empleado;
     }
+
 
     @Override
     public String toString() {
