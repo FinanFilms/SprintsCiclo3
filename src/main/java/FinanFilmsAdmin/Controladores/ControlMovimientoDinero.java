@@ -18,6 +18,7 @@ public class ControlMovimientoDinero {
 
     public ControlMovimientoDinero(ServiciosMovimientoDinero servicio){this.sempresa = servicio;}
 
+
     @GetMapping("/enterprises/{id}/movements")
     public List<MovimientoDinero> getMovimientoEmpresa(){
         return sempresa.getServicioMD();

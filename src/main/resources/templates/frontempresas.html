@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <title>Empleados</title>
+    <title>Empresas</title>
 
 </head>
 <body class="d-flex h-100 text-center text-bg-dark">
@@ -23,29 +23,32 @@
 
     <main class="px-3">
       <div class = "px-4 py-5 my-5 text-center">
-        <h1 class="display-4 text-white fw-bold mb-4">Empleados Asociados</h1>
+        <h1 class="display-4 text-white fw-bold mb-4">Empresas Asociadas</h1>
           <div class="d-flex justify-content-center gap-3">
 
 
 
-              <div th:each="Empleados:${Empleados}" class="card" style="width: 18rem;">
+              <div th:each="Empresas:${Empresas}" class="card" style="width: 18rem;">
                 <img src="img/LogoFF2.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 th:text=${Empleados.NombreEmpledado} class="card-title text-black"></h5>
-                    <h5 th:text=${Empleados.CedulaEmpleado} class="card-title text-black"></h5>
-                    <p th:text=${Empleados.EmpresaEmpleado.nombreEmpresa} class="card-text text-black"> </p>
+
+                    <h5 th:text=${Empresas.nombreEmpresa} class="card-title text-black"></h5>
+
+                    <h5 th:text=${Empresas.direccionEmpresa} class="card-title text-black"></h5>
+                    <p th:text=${Empresas.telefonoEmpresa} class="card-text text-black"> </p>
                 </div>
                   <ul class="list-group list-group-flush">
-                      <li th:text=${Empleados.CorreoEmpleado} class="list-group-item"></li>
-                      <li th:text=${Empleados.RolUsuario} class="list-group-item"></li>
-                      <li th:text=${Empleados.MovimientoDineroEmp} class="list-group-item"></li>
+                      <li th:text=${Empresas.nitEmpresa} class="list-group-item"></li>
+
 
                   </ul>
+
                 </div>
+              </div>
 
               </div>
 
-            </div>
+
 
     </main>
 

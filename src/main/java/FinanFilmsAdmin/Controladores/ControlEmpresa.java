@@ -32,10 +32,17 @@ return empresa1;
     public ControlEmpresa (ServiciosEmpresa servicioEmp){
         this.servicioEmp = servicioEmp;
     }
+
+/*
     @GetMapping("/empresas")
     public List<Empresa> listaEmpresas(){
         return this.servicioEmp.getListaEmpresas();
     }
+
+
+ */
+
+
     @PostMapping ("/empresas")
     public Empresa crearEmpresa(@RequestBody Empresa emp){
         return this.servicioEmp.crearEmpresa(emp);
