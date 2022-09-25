@@ -80,7 +80,7 @@ public class FrontController {
 
     @GetMapping("empleado/nuevo")
 public String empleadoNuevo (Model model){
-        model.addAttribute("empleadoNuevo",new Empleado());
+        model.addAttribute("empleado",new Empleado());
 
         return "nuevo-empleado";
 }

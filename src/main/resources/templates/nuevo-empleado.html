@@ -34,19 +34,20 @@
         <div class="col-lg-5 mx-auto">
 
             <!-- Al colocar las instrucciones "th" se daña el formulario...
+-->
 
-
-            <form th:action="@{/empleados}" th:method="post" th:object="${empleadoNuevo}" class="d-flex flex-column gap-3 align-items-center">
-                <input th:field="*{CedulaEmpleado}" class="form-control" type="number" placeholder="Cedula " />
-                <input th:field="*{CorreoEmpleado}"  class="form-control" type="text" placeholder="Correo " />
-                <input th:field="*{NombreEmpledado}" class="form-control" type="text" placeholder="Nombre " />
+            <form th:action="@{/empleados}" th:method="post" th:object="${empleado}" class="d-flex flex-column gap-3 aling-items-center">
+                <input th:field="*{CedulaEmpleado}" class="form-control" type="number" placeholder="Cedula" />
+                <input th:field="*{CorreoEmpleado}"  class="form-control" type="text" placeholder="Correo" />
+                <input th:field="*{NombreEmpledado}" class="form-control" type="text" placeholder="Nombre" />
                 <input th:field="*{RolUsuario}" class="form-control" type="text" placeholder="Rol" />
-                <input th:field="*{empresas.nitEmpresa}" class="form-control" type="number" placeholder="Nit Empresa" />
+                <input th:field="*{EmpresaEmpleado.nitEmpresa}" class="form-control" type="number" placeholder="Nit Empresa" />
 
                 <button class="btn btn-primary btn-lg px-4 gap-3" type="submit"> Crear Empleado </button>
+                <a href="/empleados" class="btn btn-outline-secondary px-4 gap-3"  type="submit">Cancelar</a>
 
             </form>
-             -->
+             <!--
 
             <form class="d-flex flex-column gap-3 align-items-center">
                 <input class="form-control" type="number" placeholder="Cedula " />
@@ -58,7 +59,7 @@
                 <button class="btn btn-primary btn-lg px-4 gap-3" type="submit"> Crear Empleado </button>
 
             </form>
-
+-->
 
         </div>
 

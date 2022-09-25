@@ -28,20 +28,24 @@ public class ControlEmpleado {
         return this.serviciosEmpld.getUnicoEmpleado(id);
     }
 
+    /*
     @PostMapping("/empleados")
     public Empleado crearEmpleado (@ModelAttribute Empleado empleadoNuevo, Model model){
         model.addAttribute(empleadoNuevo);
         return this.serviciosEmpld.crearEmpleado(empleadoNuevo);
     }
-/*//Omitiendo la salida del json en el navegador
+
+     */
+//Omitiendo la salida del json en el navegador
     @PostMapping ("/empleados")
     public RedirectView crearEmpleado (@ModelAttribute Empleado empleadoNuevo, Model model){
         model.addAttribute(empleadoNuevo);
         this.serviciosEmpld.crearEmpleado(empleadoNuevo);
-        return new RedirectView("/empleados")
+        return new RedirectView("/empleados");
     }
 
- */
+
+
 
 
 
