@@ -13,9 +13,9 @@
         <div>
             <h3 class="float-md-start mb-0">FinanFilms</h3>
             <nav class="nav nav-masthead justify-content-center float-md-end">
-                <a class="nav-link fw-bold py-1 px-3 active" aria-current="page" href="http://localhost:8080/">Home</a>
+                <a class="nav-link fw-bold py-1 px-3 active" aria-current="page" href="http://localhost:8080/inicio">Inicio</a>
                 <a class="nav-link fw-bold py-1 px-3" href="http://localhost:8080/empleados">Empleados</a>
-                <a class="nav-link fw-bold py-1 px-3" href="http://localhost:8080/Empresas">Empresa</a>
+                <a class="nav-link fw-bold py-1 px-3" href="http://localhost:8080/empresas">Empresa</a>
                 <a class="nav-link fw-bold py-1 px-3" href="http://localhost:8080/enterprises">Movimientos</a>
             </nav>
         </div>
@@ -28,25 +28,31 @@
 
 
 
-              <div th:each="Empresas:${Empresas}" class="card" style="width: 18rem;">
+              <div th:each="empresas:${Empresas}" class="card" style="width: 18rem;">
                 <img src="img/LogoFF2.png" class="card-img-top" alt="...">
                 <div class="card-body">
 
-                    <h5 th:text=${Empresas.nombreEmpresa} class="card-title text-black"></h5>
+                    <h5 th:text=${empresas.nombreEmpresa} class="card-title text-black"></h5>
 
-                    <h5 th:text=${Empresas.direccionEmpresa} class="card-title text-black"></h5>
-                    <p th:text=${Empresas.telefonoEmpresa} class="card-text text-black"> </p>
+                    <h5 th:text=${empresas.direccionEmpresa} class="card-title text-black"></h5>
+                    <p th:text=${empresas.telefonoEmpresa} class="card-text text-black"> </p>
                 </div>
                   <ul class="list-group list-group-flush">
-                      <li th:text=${Empresas.nitEmpresa} class="list-group-item"></li>
+                      <li th:text=${empresas.nitEmpresa} class="list-group-item"></li>
 
 
                   </ul>
 
                 </div>
-              </div>
+
 
               </div>
+
+        <div class = "px-4 py-5 my-1 text-center">
+            <a href="/empresas/nueva" type = "button"class = "btn btn-primary btn-lg px-5 gap-3">Crear empresa</a>
+        </div>
+
+</div>
 
 
 

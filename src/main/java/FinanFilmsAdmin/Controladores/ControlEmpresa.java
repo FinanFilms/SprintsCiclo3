@@ -3,6 +3,7 @@ package FinanFilmsAdmin.Controladores;
 
 import FinanFilmsAdmin.Entidades.Empresa;
 import FinanFilmsAdmin.Servicios.ServiciosEmpresa;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -44,7 +45,8 @@ return empresa1;
 
 
     @PostMapping ("/empresas")
-    public Empresa crearEmpresa(@RequestBody Empresa emp){
+    public Empresa crearEmpresa(@ModelAttribute Empresa emp, Model model){
+        model.addAttribute(emp);
         return this.servicioEmp.crearEmpresa(emp);
     }
     //Metodo editar un registro

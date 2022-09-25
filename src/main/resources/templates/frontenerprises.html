@@ -13,9 +13,9 @@
         <div>
             <h3 class="float-md-start mb-0">FinanFilms</h3>
             <nav class="nav nav-masthead justify-content-center float-md-end">
-                <a class="nav-link fw-bold py-1 px-3 active" aria-current="page" href="http://localhost:8080/">Home</a>
+                <a class="nav-link fw-bold py-1 px-3 active" aria-current="page" href="http://localhost:8080/inicio">inicio</a>
                 <a class="nav-link fw-bold py-1 px-3" href="http://localhost:8080/empleados">Empleados</a>
-                <a class="nav-link fw-bold py-1 px-3" href="http://localhost:8080/Empresas">Empresa</a>
+                <a class="nav-link fw-bold py-1 px-3" href="http://localhost:8080/empresas">Empresa</a>
                 <a class="nav-link fw-bold py-1 px-3" href="http://localhost:8080/enterprises">Movimientos</a>
             </nav>
         </div>
@@ -23,28 +23,25 @@
 
     <main class="px-3">
       <div class = "px-4 py-5 my-5 text-center">
-        <h1 class="display-4 text-white fw-bold mb-4">Empleados Asociados</h1>
+        <h1 class="display-4 text-white fw-bold mb-4">Movimientos Dinero</h1>
           <div class="d-flex justify-content-center gap-3">
 
 
 
-              <div th:each="Empleados:${Empleados}" class="card" style="width: 18rem;">
+              <div th:each="movimientos:${Movimientos}" class="card" style="width: 18rem;">
                 <img src="img/LogoFF2.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 th:text=${Empleados.NombreEmpledado} class="card-title text-black"></h5>
-                    <h5 th:text=${Empleados.CedulaEmpleado} class="card-title text-black"></h5>
-                    <p th:text=${Empleados.EmpresaEmpleado.nombreEmpresa} class="card-text text-black"> </p>
+                    <h5 th:text=${movimientos.MontoMovimiento} class="card-title text-black"></h5>
+                    <h5 th:text=${movimientos.Ingreso} class="card-title text-black"></h5>
+                    <p th:text=${movimientos.ConceptoMovimiento} class="card-text text-black"> </p>
                 </div>
-                  <ul class="list-group list-group-flush">
-                      <li th:text=${Empleados.CorreoEmpleado} class="list-group-item"></li>
-                      <li th:text=${Empleados.RolUsuario} class="list-group-item"></li>
-                      <li th:text=${Empleados.MovimientoDineroEmp} class="list-group-item"></li>
 
-                  </ul>
                 </div>
 
               </div>
-
+          <div class = "px-4 py-5 my-1 text-center">
+              <a href="/movimiento/nuevo" type = "button" class = "btn btn-primary btn-lg px-5 gap-3">Crear movimiento</a>
+          </div>
             </div>
 
     </main>

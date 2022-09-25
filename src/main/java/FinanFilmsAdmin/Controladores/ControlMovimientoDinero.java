@@ -23,11 +23,14 @@ public class ControlMovimientoDinero {
     public List<MovimientoDinero> getMovimientoEmpresa(){
         return sempresa.getServicioMD();
     }
-
+/*
     @GetMapping("/enterprises")
     public List<MovimientoDinero> listadeMovimientos(){
         return this.sempresa.getListaMovD();
     }
+
+ */
+
 
     @PostMapping("/enterprises/{id}/movements")
     public String poMovimientoEmpresa(@RequestBody MovimientoDinero movimientoDinero,@PathVariable("id") long id){

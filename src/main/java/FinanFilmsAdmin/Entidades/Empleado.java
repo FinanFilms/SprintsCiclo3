@@ -1,6 +1,8 @@
 package FinanFilmsAdmin.Entidades;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -8,8 +10,9 @@ import java.util.Set;
 @Table (name = "Empleado")
 public class Empleado {
 
+    //Se cambio de privado a publico la cedula
     @Id
-    private Long CedulaEmpleado;
+    public Long CedulaEmpleado;
 
     @Column(name="Nombre_Empleado")
     private String NombreEmpledado;
@@ -23,6 +26,8 @@ public class Empleado {
     private String RolUsuario;
 
     @OneToMany(mappedBy = "Empleado")
+    //Instruccion para evitar el bucle movimiendodinero
+    @JsonIgnoreProperties(value = "MovimientoDineroEmp")
     private Set<MovimientoDinero> MovimientoDineroEmp;
 
 

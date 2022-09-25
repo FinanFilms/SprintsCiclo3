@@ -2,6 +2,8 @@
 <html lang="en" class="h-100" xmlns:th="http:/www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <title>Empleados</title>
 
@@ -13,37 +15,92 @@
         <div>
             <h3 class="float-md-start mb-0">FinanFilms</h3>
             <nav class="nav nav-masthead justify-content-center float-md-end">
-                <a class="nav-link fw-bold py-1 px-3 active" aria-current="page" href="http://localhost:8080/">Home</a>
+                <a class="nav-link fw-bold py-1 px-3 active" aria-current="page" href="http://localhost:8080/inicio">Inicio</a>
                 <a class="nav-link fw-bold py-1 px-3" href="http://localhost:8080/empleados">Empleados</a>
                 <a class="nav-link fw-bold py-1 px-3" href="http://localhost:8080/empresas">Empresa</a>
-                <a class="nav-link fw-bold py-1 px-3" href="http://localhost:8080/enterprises">Movimientos</a>
+                <a class="nav-link fw-bold py-1 px-3" href="http://localhost:8080/enterprises">MovimientoDinero</a>
             </nav>
         </div>
     </header>
 
     <main class="px-3">
-      <div class = "px-4 py-5 my-5 text-center">
+      <div class = "px-4 py-5 my-2 text-center">
         <h1 class="display-4 text-white fw-bold mb-4">Empleados Asociados</h1>
           <div class="d-flex justify-content-center gap-3">
 
 
 
-              <div th:each="Empleados:${Empleados}" class="card" style="width: 18rem;">
+              <div th:each="empleados:${Empleados}" class="card" style="width: 18rem;">
                 <img src="img/LogoFF2.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 th:text=${Empleados.NombreEmpledado} class="card-title text-black"></h5>
-                    <h5 th:text=${Empleados.CedulaEmpleado} class="card-title text-black"></h5>
-                    <p th:text=${Empleados.EmpresaEmpleado.nombreEmpresa} class="card-text text-black"> </p>
+                    <h5 th:text=${empleados.NombreEmpledado} class="card-title text-black"></h5>
+                    <h5 th:text=${empleados.CedulaEmpleado} class="card-title text-black"></h5>
+                    <p th:text=${empleados.EmpresaEmpleado.nombreEmpresa} class="card-text text-black"> </p>
                 </div>
                   <ul class="list-group list-group-flush">
-                      <li th:text=${Empleados.CorreoEmpleado} class="list-group-item"></li>
-                      <li th:text=${Empleados.RolUsuario} class="list-group-item"></li>
-                      <li th:text=${Empleados.MovimientoDineroEmp} class="list-group-item"></li>
+                      <li th:text=${empleados.CorreoEmpleado} class="list-group-item"></li>
+                      <li th:text=${empleados.RolUsuario} class="list-group-item"></li>
+
+                      <!--
+                      <li th:text=${empleados.MovimientoDineroEmp} class="list-group-item"></li>
+                      -->
 
                   </ul>
                 </div>
 
+
+              <!--
+                            <div class="container">
+                                <table style="width:80%" border="1"
+                                       class="table table-striped table-responsive-md">
+                                    <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Cedula</th>
+                                        <th>Empresa</th>
+                                        <th>Correo</th>
+                                        <th>Rol</th>
+                                        <th>Movimiento</th>
+                                        <th>Editar</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="empleados: ${Empleados}">
+                                        <td th:text="${empleados.NombreEmpledado}"></td>
+                                        <td th:text="${empleados.CedulaEmpleado}"></td>
+                                        <td th:text="${empleados.EmpresaEmpleado.nombreEmpresa}"></td>
+                                        <td th:text="${empleados.CorreoEmpleado}"></td>
+                                        <td th:text="${empleados.RolUsuario}"></td>
+
+                                        <td th:text="${empleados.MovimientoDineroEmp}"></td>
+
+
+                          <td>
+                          <a href="/movimientos/id" type="button" class="btn btn-primary"> Ver servicios</a>
+                          </td>
+
+
+
+                          <td><a
+                                 class="btn btn-primary">Actualizar</a>
+                              <a
+                                 class="btn btn-danger">Borrar</a>
+                          </td>
+                      </tr>
+                      </tbody>
+                  </table>
+              -->
+
               </div>
+
+
+
+
+
+          <div class = "px-4 py-5 my-1 text-center">
+              <a href="/empleado/nuevo" type = "button" class = "btn btn-primary btn-lg px-5 gap-3">Crear empleado</a>
+          </div>
 
             </div>
 

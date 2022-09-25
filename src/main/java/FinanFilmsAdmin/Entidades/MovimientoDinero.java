@@ -1,5 +1,9 @@
 package FinanFilmsAdmin.Entidades;
 
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,6 +20,8 @@ public class MovimientoDinero {
     private String ConceptoMovimiento;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "CedulaEmpleado", nullable = false)
+    //Instruccion para evitar el bucle en movimientodinero
+    @JsonIgnoreProperties(value= "Empleado")
     private Empleado Empleado;
 
     //Nuevo constructor
