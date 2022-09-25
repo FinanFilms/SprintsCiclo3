@@ -5,6 +5,7 @@ import FinanFilmsAdmin.Entidades.Empresa;
 import FinanFilmsAdmin.Servicios.ServiciosEmpresa;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -45,9 +46,10 @@ return empresa1;
 
 
     @PostMapping ("/empresas")
-    public Empresa crearEmpresa(@ModelAttribute Empresa emp, Model model){
-        model.addAttribute(emp);
-        return this.servicioEmp.crearEmpresa(emp);
+    public RedirectView crearEmpresa(@ModelAttribute Empresa emp, Model modelne){
+        modelne.addAttribute(emp);
+        this.servicioEmp.crearEmpresa(emp);
+        return new RedirectView("/empresas") ;
     }
     //Metodo editar un registro
     @PutMapping("/empresas/{id}")

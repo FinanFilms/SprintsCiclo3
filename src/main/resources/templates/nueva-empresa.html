@@ -28,9 +28,9 @@
         <h1 class = "display-5 fw-bold mb-5"> Nuevo Empresa</h1>
 
         <div class="col-lg-5 mx-auto">
-            <!-- Al colocar las instrucciones "th" se daña el formulario...
 
-            <form th:action="@{/empresas}" th:method="post" th:object="${emp}"  class="d-flex flex-column gap-3 align-items-center">
+
+            <form th:action="@{/empresas}" th:method="post" th:object="${emp2}"  class="d-flex flex-column gap-3 align-items-center">
                 <input th:field="*{nitEmpresa}" class="form-control" type="number" placeholder="Nit Empresa " />
                 <input th:field="*{direccionEmpresa}" class="form-control" type="text" placeholder="Direccion " />
                 <input th:field="*{nombreEmpresa}" class="form-control" type="text" placeholder="Nombre " />
@@ -38,29 +38,30 @@
 
                 <button class="btn btn-primary btn-lg px-4 gap-3" type="submit"> Crear Empresa </button>
             </form>
+
+            <!-- Al colocar las instrucciones "th" se daña el formulario...
+           <form class="d-flex flex-column gap-3 align-items-center">
+               <input class="form-control" type="number" placeholder="Nit Empresa " />
+               <input class="form-control" type="text" placeholder="Direccion " />
+               <input class="form-control" type="text" placeholder="Nombre " />
+               <input class="form-control" type="text" placeholder="Telefono" />
+
+               <button class="btn btn-primary btn-lg px-4 gap-3" type="submit"> Crear Empresa </button>
+
+           </form>
+
 -->
-            <form class="d-flex flex-column gap-3 align-items-center">
-                <input class="form-control" type="number" placeholder="Nit Empresa " />
-                <input class="form-control" type="text" placeholder="Direccion " />
-                <input class="form-control" type="text" placeholder="Nombre " />
-                <input class="form-control" type="text" placeholder="Telefono" />
-
-                <button class="btn btn-primary btn-lg px-4 gap-3" type="submit"> Crear Empresa </button>
-
-            </form>
-
-
-        </div>
+       </div>
 
 
 
-    </div>
+   </div>
 
 
 
 </main>
 <footer class="mt-auto text-white-50">
-    <p>Propiedad de Finanfilms generado con <a href="https://getbootstrap.com/" class="text-white">  Bootstrap </a></p>
+   <p>Propiedad de Finanfilms generado con <a href="https://getbootstrap.com/" class="text-white">  Bootstrap </a></p>
 </footer>
 </div>
 

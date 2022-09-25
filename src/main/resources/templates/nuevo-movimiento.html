@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-100" xmlns:th="http:/www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -33,11 +33,11 @@
 
             <div class="col-lg-5 mx-auto">
 
-                <form class="d-flex flex-column gap-3 align-items-center">
-                    <input class="form-control" type="text" placeholder="Concepto " />
-                    <input class="form-control" type="text" placeholder="true or false " />
-                    <input class="form-control" type="number" placeholder="Monto " />
-                    <input class="form-control" type="number" placeholder="Cedula empleado" />
+                <form  th:action="@{/enterprises}" th:method="post" th:object="${nmd}" class="d-flex flex-column gap-3 align-items-center">
+                    <input th:field="*{ConceptoMovimiento}"class="form-control" type="text" placeholder="Concepto " />
+                    <input th:field="*{Ingreso}" class="form-control" type="boolean" placeholder="true or false"  />
+                    <input th:field="*{MontoMovimiento}"class="form-control" type="number" placeholder="Monto " />
+                    <input th:field="*{Empleado.CedulaEmpleado}"class="form-control" type="number" placeholder="Cedula empleado" />
 
 
                     <button class="btn btn-primary btn-lg px-4 gap-3" type="submit"> Crear Movimiento </button>

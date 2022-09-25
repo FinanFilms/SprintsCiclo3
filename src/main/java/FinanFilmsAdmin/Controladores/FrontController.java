@@ -70,7 +70,7 @@ public class FrontController {
         return "frontempresas";
     }
 
-    @GetMapping("enterprises")
+    @GetMapping("/enterprises")
     public String Movimientos(Model modeloMovimientos){
         List<MovimientoDinero> Movimientos = this.serviceMov.getListaMovD();
         modeloMovimientos.addAttribute("Movimientos",Movimientos);
@@ -79,19 +79,20 @@ public class FrontController {
 
 
     @GetMapping("empleado/nuevo")
-public String empleadoNuevo (Model model){
+    public String empleadoNuevo (Model model){
         model.addAttribute("empleado",new Empleado());
 
         return "nuevo-empleado";
-}
+    }
 
-@GetMapping("empresas/nueva")
-    public String nuevaEmpresa(Model model){
-    model.addAttribute("empresa",new Empresa());
-        return "nueva-empresa";
-}
+    @GetMapping("empresas/nueva")
+        public String nuevaEmpresa(Model modelne){
+        modelne.addAttribute("emp2",new Empresa());
+            return "nueva-empresa";
+    }
     @GetMapping("movimiento/nuevo")
-    public String nuevaMovimiento(){
+    public String nuevaMovimiento(Model modelnm){
+        modelnm.addAttribute("nmd",new MovimientoDinero());
         return "nuevo-movimiento";
     }
 

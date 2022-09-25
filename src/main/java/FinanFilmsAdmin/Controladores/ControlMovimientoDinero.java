@@ -5,7 +5,9 @@ import FinanFilmsAdmin.Entidades.Empresa;
 import FinanFilmsAdmin.Entidades.MovimientoDinero;
 import FinanFilmsAdmin.Servicios.ServiciosEmpresa;
 import FinanFilmsAdmin.Servicios.ServiciosMovimientoDinero;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -30,12 +32,16 @@ public class ControlMovimientoDinero {
     }
 
  */
-
-
-    @PostMapping("/enterprises/{id}/movements")
-    public String poMovimientoEmpresa(@RequestBody MovimientoDinero movimientoDinero,@PathVariable("id") long id){
-        return sempresa.crearMovimientoDinero(movimientoDinero);
+    @PostMapping ("/enterprises")
+    public RedirectView crearMovimientoDinero (@ModelAttribute MovimientoDinero nuevoMov2, Model modelnm){
+        modelnm.addAttribute(nuevoMov2);
+        this.sempresa.crearMovimientoDiner(nuevoMov2);
+        return new RedirectView("/enterprises");
     }
+
+
+
+    /*
     @PatchMapping("/enterprises/{id}/movements/{id2}/{monto}/{ingreso}/{movimiento}")
     public String paMovimientoEmpresa(@PathVariable("id2") long id2,
                                       @PathVariable("monto") float monto,
@@ -43,10 +49,14 @@ public class ControlMovimientoDinero {
                                       @PathVariable("movimiento") String movimiento,
                                       @PathVariable("id") long id){
         return sempresa.actMovimientoDinero(id2,monto,ingreso,movimiento);
-    }
-    @DeleteMapping("/enterprises/{id}/movements/{id2}")
+        }
+
+         @DeleteMapping("/enterprises/{id}/movements/{id2}")
     public String deMovimientoEmpresa(@PathVariable("id") long id,@PathVariable long id2 ){
         return sempresa.delMovimientoDinero(id2);
     }
+
+        */
+
 
 }

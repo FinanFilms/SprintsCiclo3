@@ -22,26 +22,26 @@ public class ServiciosMovimientoDinero {
         return repositorio.findAll();
     }
 
-    public String crearMovimientoDinero(MovimientoDinero movimientoDinero){
-        repositorio.save(movimientoDinero);
-        return "registro creado";
+    public MovimientoDinero crearMovimientoDiner(MovimientoDinero nuevoMovimiento){
+        return this.repositorio.save(nuevoMovimiento);
     }
-    public String actMovimientoDinero(long id,float montoMovimiento, boolean ingreso, String conceptoMovimiento){
-        MovimientoDinero movd = repositorio.findById(id).get();
-        movd.setMontoMovimiento(montoMovimiento);
-        movd.setIngreso(ingreso);
-        movd.setConceptoMovimiento(conceptoMovimiento);
-        repositorio.save(movd);
-        return "registro actualizadco";
+
+
+    public MovimientoDinero actMovimientoDinero(Long id,MovimientoDinero nmd){
+        MovimientoDinero movdactual = repositorio.findById(id).orElseThrow();;
+        movdactual.setMontoMovimiento(nmd.getMontoMovimiento());
+        movdactual.setConceptoMovimiento(nmd.getConceptoMovimiento());
+        movdactual.setIngreso(nmd.isIngreso());
+        return this.repositorio.save(movdactual);
     }
     public List<MovimientoDinero> getListaMovD(){
         return this.repositorio.findAll();
 
     }
-    public String delMovimientoDinero(long id){
-        MovimientoDinero movd = repositorio.findById(id).get();
-        repositorio.delete(movd);
-        return "registro eliminado";
+    public MovimientoDinero delMovimientoDinero(Long id){
+        MovimientoDinero movd = repositorio.findById(id).orElseThrow();
+        this.repositorio.deleteById(id);
+        return movd;
     }
 
 }

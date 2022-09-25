@@ -24,6 +24,11 @@ public class MovimientoDinero {
     @JsonIgnoreProperties(value= "Empleado")
     private Empleado Empleado;
 
+
+
+
+
+
     //Nuevo constructor
     public MovimientoDinero(){
 
