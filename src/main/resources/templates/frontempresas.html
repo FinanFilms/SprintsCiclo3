@@ -23,22 +23,28 @@
 
     <main class="px-3">
       <div class = "px-4 py-5 my-5 text-center">
-        <h1 class="display-4 text-white fw-bold mb-4">Empresas Asociadas</h1>
+        <h1 class="display-5 text-white fw-bold mb-4">Empresas Asociadas</h1>
           <div class="d-flex justify-content-center gap-3">
 
 
 
-              <div th:each="empresas:${Empresas}" class="card" style="width: 18rem;">
+              <div th:each="empresas:${Empresas}" class="card" style="width: 15rem;">
                 <img src="img/LogoFF2.png" class="card-img-top" alt="...">
                 <div class="card-body">
-
+                    <h9 class="text-black fw-bold">Nombre:</h9>
                     <h5 th:text=${empresas.nombreEmpresa} class="card-title text-black"></h5>
-
+                    <h9 class="text-black fw-bold">Direccion:</h9>
                     <h5 th:text=${empresas.direccionEmpresa} class="card-title text-black"></h5>
+                    <h9 class="text-black fw-bold">Teléfono:</h9>
                     <p th:text=${empresas.telefonoEmpresa} class="card-text text-black"> </p>
                 </div>
                   <ul class="list-group list-group-flush">
+                      <h9 class="text-black fw-bold">NIT:</h9>
                       <li th:text=${empresas.nitEmpresa} class="list-group-item"></li>
+                      <div class="d-flex justify-content-center gap-2">
+                          <a class="btn btn-primary btn-sm gap-1">Editar</a>
+                          <a class="btn btn-danger btn-sm">Eliminar</a>
+                      </div>
 
 
                   </ul>

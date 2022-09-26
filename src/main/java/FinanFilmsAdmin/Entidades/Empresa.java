@@ -6,10 +6,6 @@ import javax.persistence.*;
 @Table (name="Empresa")
 public class Empresa {
 
-
-
-
-
     @Column(name = "nombre_empresa")
     private String nombreEmpresa;
     @Column(name = "direccion_empresa")
