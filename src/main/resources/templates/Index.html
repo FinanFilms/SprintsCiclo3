@@ -17,25 +17,26 @@
 
 
 
-        <img src="img/LogoFF.jpg" alt="No se encuentra">
-        <h1>FinanFilms Admin.</h1>
-        <p class="lead">Bienvenido a la plataforma para administrar y gestionar movimientos de empresas del septimo arte</p>
+                <img src="img/LogoFF.jpg" alt="No se encuentra">
+                <h1>FinanFilms Admin.</h1>
+                <p class="lead">Bienvenido a la plataforma para administrar y gestionar movimientos de empresas del septimo arte</p>
 
-        <div>
-            <a href="/inicio" type="button" class="btn btn-primary btn-lg px-4 gap-3">Pasa al Aplicativo</a>
-        </div>
+        <!--
+
+              <div>
+                  <a href="/inicio" type="button" class="btn btn-primary btn-lg px-4 gap-3">Pasa al Aplicativo</a>
+              </div>
 
 
-<!--    ME DEJO PASAR A LA SOLICITUD DE AUTENTICACION PERO AL SEGUIR, ME INDICA QUE ERROR 500 NUEVAMENTE AL PONER LA INSTRUCCION TH:
+         ME DEJO PASAR A LA SOLICITUD DE AUTENTICACION PERO AL SEGUIR, ME INDICA QUE ERROR 500 NUEVAMENTE AL PONER LA INSTRUCCION TH:
+           -->
         <div sec:authorize="!isAuthenticated()">
-
-            <a th:href="@{/oauth2/authorization/auth0}" type="button" class="btn btn-primary btn-lg px-4 gap-3">Inicio de sesion</a>
+            <a th:href="@{/oauth2/authorization/auth0}" type="button" class="btn btn-primary btn-lg px-5 gap-3">Iniciar sesión</a>
         </div>
-
         <div sec:authorize="isAuthenticated()">
-            <a th:href="/inicio" type="button" class="btn btn-primary btn-lg px-4 gap-3">Pasa al Aplicativo</a>
+            <a href="/inicio" type="button" class="btn btn-primary btn-lg px-5 gap-3">Ir al aplicativo</a>
         </div>
--->
+
 
     </main>
 

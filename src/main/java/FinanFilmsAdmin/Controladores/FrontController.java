@@ -3,6 +3,7 @@ package FinanFilmsAdmin.Controladores;
 import FinanFilmsAdmin.Entidades.Empleado;
 import FinanFilmsAdmin.Entidades.Empresa;
 import FinanFilmsAdmin.Entidades.MovimientoDinero;
+import FinanFilmsAdmin.Entidades.Usuario;
 import FinanFilmsAdmin.Servicios.ServiciosEmpresa;
 import FinanFilmsAdmin.Servicios.ServiciosMovimientoDinero;
 import FinanFilmsAdmin.Servicios.ServiciosUsuarios;
@@ -35,22 +36,18 @@ public class FrontController {
 
     }
 
+
+
     @GetMapping("/")
     public String Home(Model model, @AuthenticationPrincipal OidcUser principal){
-        return "Index";
-    }
-    /*
-    //Esto corresponde al mapeado de la autenticacion de usuario
-    @GetMapping("/")//Ruta Raiz
-    public String Home(Model model, @AuthenticationPrincipal OidcUser principal) {
-        if (principal != null){
-            //System.out.println(principal.getClaims());
+        if(principal != null){
+            // System.out.println(principal.getClaims());
             Usuario usuario = this.serviceUs.getOrCreateUsuario(principal.getClaims());
             model.addAttribute("usuario", usuario);
         }
+
         return "Index";
     }
-     */
     @GetMapping("/inicio")
     public String inicio(){
         return "inicio";
