@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import FinanFilmsAdmin.Servicios.ServiciosEmpleado;
+import org.springframework.web.bind.annotation.PathVariable;
+
 import java.util.List;
 
 
@@ -59,6 +61,13 @@ public class FrontController {
         return "frontempleados";
     }
 
+    @GetMapping("/empleados/{id}")
+    public String Empleadosid(@PathVariable Long id, Model modeloEmpleadosid){
+        Empleado Empleadoid= this.serviciosEmpld.getUnicoEmpleado(id);
+        modeloEmpleadosid.addAttribute("empleadoid",Empleadoid);
+        return "frontempleadosID";
+    }
+
 
     @GetMapping("/empresas")
     public String Empresas(Model modeloEmpresas){
@@ -67,11 +76,25 @@ public class FrontController {
         return "frontempresas";
     }
 
+    @GetMapping("/empresas/{id}")
+    public String Empresaid(@PathVariable Long id, Model modeloEmpresaid){
+        Empresa Empresaid= this.servicioEmp.getUnicaEmpresa(id);
+        modeloEmpresaid.addAttribute("empresaid",Empresaid);
+        return "frontempresasID";
+    }
+
     @GetMapping("/enterprises")
     public String Movimientos(Model modeloMovimientos){
         List<MovimientoDinero> Movimientos = this.serviceMov.getListaMovD();
         modeloMovimientos.addAttribute("Movimientos",Movimientos);
         return "frontenerprises";
+    }
+
+    @GetMapping("/enterprises/{id}")
+    public String MovDinero(@PathVariable Long id, Model modeloMovimientosid){
+        MovimientoDinero MovDineroid= this.serviceMov.getUnicoMov(id);
+        modeloMovimientosid.addAttribute("movDineroid",MovDineroid);
+        return "frontenterprisesID";
     }
 
 

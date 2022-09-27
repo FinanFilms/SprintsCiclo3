@@ -12,10 +12,11 @@ public class Empleado {
 
     //Se cambio de privado a publico la cedula
     @Id
+
     public Long CedulaEmpleado;
 
     @Column(name="Nombre_Empleado")
-    private String NombreEmpledado;
+    public String NombreEmpledado;
     @Column(name = "correo_empleado")
     private String CorreoEmpleado;
 
@@ -26,6 +27,7 @@ public class Empleado {
     private String RolUsuario;
 
     @OneToMany(mappedBy = "Empleado")
+    
     //Instruccion para evitar el bucle movimiendodinero
     @JsonIgnoreProperties(value = "MovimientoDineroEmp")
     private Set<MovimientoDinero> MovimientoDineroEmp;

@@ -39,6 +39,17 @@ return empresa1;
     @GetMapping("/empresas")
     public List<Empresa> listaEmpresas(){
         return this.servicioEmp.getListaEmpresas();
+
+     @PutMapping("/empresas/{id}")
+    public Empresa actualizarEmpresa(@PathVariable Long id, @RequestBody Empresa actEmpresa){
+        return this.servicioEmp.actualizarEmp(id,actEmpresa);
+    }
+    //Metodo borrar registro
+    @DeleteMapping("/eliminar/{id}")
+    public Empresa eliminarEmpresa(@PathVariable (value = "id")Long id){
+        return this.servicioEmp.eliminarEmp(id);
+
+    }
     }
 
 
@@ -53,13 +64,15 @@ return empresa1;
     }
     //Metodo editar un registro
     @PutMapping("/empresas/{id}")
-    public Empresa actualizarEmpresa(@PathVariable Long id, @RequestBody Empresa actEmpresa){
-        return this.servicioEmp.actualizarEmp(id,actEmpresa);
+    public RedirectView actualizarEmpresa(@PathVariable Long id, Empresa actEmpresa){
+        this.servicioEmp.actualizarEmp(id,actEmpresa);
+        return new RedirectView("/empresas");
     }
     //Metodo borrar registro
-    @DeleteMapping("/eliminar/{id}")
-    public Empresa eliminarEmpresa(@PathVariable (value = "id")Long id){
-        return this.servicioEmp.eliminarEmp(id);
+    @DeleteMapping("/empresas/{id}")
+    public RedirectView eliminarEmpresa(@PathVariable (value = "id")Long id){
+        this.servicioEmp.eliminarEmp(id);
+        return new RedirectView("/empresas");
 
     }
 

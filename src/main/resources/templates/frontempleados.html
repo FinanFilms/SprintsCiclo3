@@ -48,8 +48,14 @@
                       <li th:text=${empleados.RolUsuario} class="list-group-item"></li>
 
                       <div class="d-flex justify-content-center gap-2">
-                          <a class="btn btn-primary btn-sm gap-1">Editar</a>
-                      <a class="btn btn-danger btn-sm">Eliminar</a>
+
+
+                          <form th:action="@{/empleados/{id}(id=${empleados.CedulaEmpleado})}" th:method="delete">
+                              <button class="btn btn-danger btn-sm">Eliminar</button>
+                          </form>
+                          <form th:action="@{/empleados/{id}(id=${empleados.CedulaEmpleado})}" th:method="get">
+                              <button type="submit"  class="btn btn-secondary btn-sm gap-1">Detalles</button>
+                          </form>
                       </div>
 
                       <!--

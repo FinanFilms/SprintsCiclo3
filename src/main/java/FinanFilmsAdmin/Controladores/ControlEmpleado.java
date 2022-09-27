@@ -21,12 +21,13 @@ public class ControlEmpleado {
     public List<Empleado> listaEmpleados(){
         return this.serviciosEmpld.getListaEmpleados();
     }
-
-     */
     @GetMapping("/empleados/{id}")
     public Empleado UnicoEmpleado(@PathVariable Long id){
         return this.serviciosEmpld.getUnicoEmpleado(id);
     }
+
+
+     */
 
     /*
     @PostMapping("/empleados")
@@ -55,13 +56,15 @@ public class ControlEmpleado {
 
 
     @PutMapping("/empleados/{id}")
-    public Empleado actualizarEmpleado(@PathVariable Long id, @RequestBody Empleado actEmpleado){
-        return this.serviciosEmpld.actualizarEmpld(id,actEmpleado);
+    public RedirectView actualizarEmpleado(@PathVariable Long id, Empleado actEmpleado){
+        this.serviciosEmpld.actualizarEmpld(id,actEmpleado);
+        return new RedirectView("/empleados");
     }
     //Metodo borrar registro
     @DeleteMapping("/empleados/{id}")
-    public Empleado eliminarEmpleado(@PathVariable (value = "id")Long id){
-        return this.serviciosEmpld.eliminarEmpld(id);
+    public RedirectView eliminarEmpleado(@PathVariable (value = "id")Long id){
+        this.serviciosEmpld.eliminarEmpld(id);
+        return new RedirectView("/empleados");
 
     }
 }

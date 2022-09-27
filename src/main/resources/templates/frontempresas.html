@@ -42,8 +42,12 @@
                       <h9 class="text-black fw-bold">NIT:</h9>
                       <li th:text=${empresas.nitEmpresa} class="list-group-item"></li>
                       <div class="d-flex justify-content-center gap-2">
-                          <a class="btn btn-primary btn-sm gap-1">Editar</a>
-                          <a class="btn btn-danger btn-sm">Eliminar</a>
+                          <form th:action="@{/empresas/{id}(id=${empresas.nitEmpresa})}" th:method="get">
+                              <button type="submit"  class="btn btn-primary btn-sm gap-1">Editar</button>
+                          </form>
+                          <form th:action="@{/empresas/{id}(id=${empresas.nitEmpresa})}" th:method="delete">
+                              <button class="btn btn-danger btn-sm">Eliminar</button>
+                          </form>
                       </div>
 
 

@@ -43,5 +43,8 @@ public class ServiciosMovimientoDinero {
         this.repositorio.deleteById(id);
         return movd;
     }
+    public MovimientoDinero getUnicoMov(Long id){
+        return repositorio.findById(id).orElseThrow();
+    }
 
 }

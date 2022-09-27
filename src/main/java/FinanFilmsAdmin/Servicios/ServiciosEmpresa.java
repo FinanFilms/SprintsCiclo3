@@ -1,5 +1,6 @@
 package FinanFilmsAdmin.Servicios;
 
+import FinanFilmsAdmin.Entidades.Empleado;
 import FinanFilmsAdmin.Entidades.Empresa;
 import FinanFilmsAdmin.Repositorios.repositorioEmpresa;
 import org.springframework.stereotype.Service;
@@ -89,4 +90,9 @@ public List<Empresa> getListaEmpresas(){
         this.repositorioEmp.deleteById(id);
         return empresActual;
     }
+    public Empresa getUnicaEmpresa(Long id){
+        return repositorioEmp.findById(id).orElseThrow();
+    }
+
 }
+

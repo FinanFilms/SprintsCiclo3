@@ -38,7 +38,18 @@ public class ControlMovimientoDinero {
         this.sempresa.crearMovimientoDiner(nuevoMov2);
         return new RedirectView("/enterprises");
     }
+    @PutMapping("/enterprises/{id}")
+    public RedirectView actualizarMd(@PathVariable Long id, MovimientoDinero actMovDinero){
+        this.sempresa.actMovimientoDinero(id,actMovDinero);
+        return new RedirectView("/enterprises");
+    }
+    //Metodo borrar registro
+    @DeleteMapping("/enterprises/{id}")
+    public RedirectView eliminarMd(@PathVariable (value = "id")Long id){
+        this.sempresa.delMovimientoDinero(id);
+        return new RedirectView("/enterprises");
 
+    }
 
 
     /*

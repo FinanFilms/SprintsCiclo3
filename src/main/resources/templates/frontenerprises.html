@@ -34,14 +34,20 @@
                     <ul class="list-group list-group-flush">
                     <h9 class="text-black fw-bold">Monto:</h9>
                     <li th:text=${movimientos.MontoMovimiento} class="list-group-item"></li>
-                    <h9 class="text-black fw-bold">Tipo:</h9>
-                    <li th:text=${movimientos.Ingreso} class="list-group-item"></li>
+
                     <h9 class="text-black fw-bold">Concepto:</h9>
                     <li th:text=${movimientos.ConceptoMovimiento} class="list-group-item"> </li>
+                    <h9 class="text-black fw-bold">Empleado:</h9>
+                    <li th:text=${movimientos.Empleado} class="list-group-item"> </li>
+
 
                         <div class="d-flex justify-content-center gap-2">
-                            <a class="btn btn-primary btn-sm gap-1">Editar</a>
-                            <a class="btn btn-danger btn-sm">Eliminar</a>
+                            <form th:action="@{/enterprises/{id}(id=${movimientos.Id})}" th:method="get">
+                                <button type="submit"  class="btn btn-primary btn-sm gap-1">Editar</button>
+                            </form>
+                            <form th:action="@{/enterprises/{id}(id=${movimientos.Id})}" th:method="delete">
+                                <button class="btn btn-danger btn-sm">Eliminar</button>
+                            </form>
                         </div>
                     </ul>
                 </div>

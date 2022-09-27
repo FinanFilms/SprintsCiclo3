@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class MovimientoDinero {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long Id;
+    public long Id;
     @Column(name = "monto_movimiento")
     private float MontoMovimiento;
     @Column(name = "ingreso")
