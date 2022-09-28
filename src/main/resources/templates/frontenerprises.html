@@ -27,7 +27,7 @@
           <div class="d-flex justify-content-center gap-3">
 
 
-
+<!--
               <div th:each="movimientos:${Movimientos}" class="card" style="width: 15rem;">
                 <img src="img/LogoFF2.png" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -52,8 +52,52 @@
                     </ul>
                 </div>
               </div>
+-->
+              <div class="container">
+                  <table style="width:80%" border="1"
+                         class="table  table-dark table-bordered table-responsive-md">
+                      <thead>
+                      <tr>
+                          <th>Concepto</th>
+                          <th>Monto</th>
+                          <th>Ingreso</th>
+                          <th>Empleado</th>
+                          <th>Empresa</th>
+                          <th>Eliminar</th>
+                          <th>Editar</th>
+
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr th:each="movimientos:${Movimientos}">
+                          <td th:text="${movimientos.ConceptoMovimiento}"></td>
+                          <td th:text="${movimientos.MontoMovimiento}"></td>
+                          <td th:text="${movimientos.Ingreso}"></td>
+                          <td th:text="${movimientos.Empleado.NombreEmpledado}"></td>
+                          <td th:text="${movimientos.Empleado.EmpresaEmpleado.nombreEmpresa}"></td>
 
 
+
+
+
+                          <td>
+
+                                  <form th:action="@{/enterprises/{id}(id=${movimientos.Id})}" th:method="get">
+                                      <button type="submit"  class="btn btn-primary btn-sm gap-1">Editar</button>
+                                  </form>
+
+                          </td>
+
+
+
+                          <td>
+                              <form th:action="@{/enterprises/{id}(id=${movimientos.Id})}" th:method="delete">
+                                  <button class="btn btn-danger btn-sm">Eliminar</button>
+                              </form>
+                          </td>
+                      </tr>
+                      </tbody>
+                  </table>
 
 
                 </div>
@@ -64,6 +108,7 @@
           </div>
 
 
+    </div>
     </main>
 
     <footer class="mt-auto text-white-50">

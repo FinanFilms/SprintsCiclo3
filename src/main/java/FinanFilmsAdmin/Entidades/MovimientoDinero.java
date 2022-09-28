@@ -18,7 +18,7 @@ public class MovimientoDinero {
     private boolean Ingreso;
     @Column(name = "concepto_movimiento")
     private String ConceptoMovimiento;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "CedulaEmpleado", nullable = false)
     //Instruccion para evitar el bucle en movimientodinero
     @JsonIgnoreProperties(value= "Empleado")
@@ -33,12 +33,18 @@ public class MovimientoDinero {
     public MovimientoDinero(){
 
     }
+@Transient
+private float positivos = 0;
+@Transient
+private float negativos = 0;
 
 
     public float getMontoMovimiento() {
         if (isIngreso()==false) {
+            this.negativos+= MontoMovimiento;
             return MontoMovimiento*=-1;
         }
+        this.positivos+= MontoMovimiento;
         return MontoMovimiento;
     }
 
@@ -71,13 +77,5 @@ public class MovimientoDinero {
     }
 
 
-    @Override
-    public String toString() {
-        return "MovimientoDinero{" +
-                "MontoMovimiento=" + MontoMovimiento +
-                ", Ingreso=" + Ingreso +
-                ", ConceptoMovimiento='" + ConceptoMovimiento + '\'' +
-                ", Empleado=" + Empleado +
-                '}';
-    }
+
 }
