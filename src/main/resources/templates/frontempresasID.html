@@ -25,7 +25,7 @@
 
     <main class="px-3">
       <div class = "px-4 py-3 my-2 text-center">
-        <h1 class="display-5 text-white fw-bold mb-4">Detalle de Movimiento Dinero</h1>
+        <h1 class="display-5 text-white fw-bold mb-4">Detalle de Empresas</h1>
           <div class="d-flex justify-content-center gap-3">
               <div th:each="empresaid:${empresaid}" class="card" style="width: 15rem;">
                 <img src="/img/LogoFF2.png" class="card-img-top" alt="NO ESTA TOMANDO LA FOTO">
@@ -34,7 +34,7 @@
                                 <h9 class="text-black fw-bold">Nombre:</h9>
                                 <input th:field="*{empresaid.nombreEmpresa}" class="form-control" type="text" />
                                 <h9 class="text-black fw-bold">Dirección:</h9>
-                                <input th:field="*{empresaid.direccionEmpresa}" class="form-control" type="number" />
+                                <input th:field="*{empresaid.direccionEmpresa}" class="form-control" type="text" />
                                 <h9 class="text-black fw-bold">Nit Empresa:</h9>
                                 <input th:field="*{empresaid.nitEmpresa}" class="form-control" type="number" placeholder="Nit Empresa" disabled="true" readonly>
                                 <h9 class="text-black fw-bold">teléfono:</h9>
